@@ -13,11 +13,9 @@ external void copyTextToClipboard(String) ;
 @Component(
   selector: 'my-app',
   template: '''
-  <h1>{{title}}</h1>
-  
   <div>
-    <label>Type here: </label><button (click)="reset()">Reset</button> 
-    <button (click)="cpttc()">Copy to clipboard</button><br /><br />
+    <label>Type here below : </label><button id="b1" (click)="reset()">Reset</button> 
+    <button (click)="cpttc()">Copy to clipboard</button><br />
     <input id="entrée" [(ngModel)]="lang.original" placeholder="Start typing" autofocus 
       style="width:80%; height:20px;" />
   </div>
@@ -28,7 +26,6 @@ external void copyTextToClipboard(String) ;
 )
 // @ViewChild('myInput') HtmlElement _foo;
 class AppComponent {
-  final title = 'Use your western keyboard to get turkish text';
   Turk lang = Turk('');
   void reset()  {lang.original = "" ; refocus(); }
   void cpttc()  { copyTextToClipboard(lang.translate()); refocus(); }
